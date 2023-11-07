@@ -6,18 +6,21 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 
 
 const HomeSectionCarousel = ({data, sectionName}) => {
+
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const slidePrev = () => setActiveIndex(activeIndex - 1);
+  const slideNext = () => setActiveIndex(activeIndex + 1);
+  const syncActiveIndex = ({ item }) => setActiveIndex(item);
+
+
   const responsive = {
     0: { items: 1 },
     720: { items: 3 },
     1024: { items: 5 },
   };
 
-  const slidePrev = () => setActiveIndex(activeIndex - 1);
-  const slideNext = () => setActiveIndex(activeIndex + 1);
-
-  const syncActiveIndex = ({ item }) => setActiveIndex(item);
-
+  
   const items = data.map((item) => (
     <HomeSectionCard product={item}></HomeSectionCard>
   ));

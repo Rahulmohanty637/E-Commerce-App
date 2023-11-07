@@ -1,7 +1,8 @@
 import "./App.css";
-import Navigation from "./customer/component/Navigation/Navigation";
+
 import Homepage from "./customer/Pages/HomePage/Homepage";
 import Footer from "./customer/component/Footer/Footer";
+import Navigation from "./customer/component/Navigation/Navigation";
 
 function App() {
   return (

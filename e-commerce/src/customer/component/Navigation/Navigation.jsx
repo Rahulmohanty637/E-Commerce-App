@@ -9,7 +9,7 @@ import {
 
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
-import { navigation } from "./Navigation";
+import { navigation } from "./navigationData";
 
 
 function classNames(...classes) {
@@ -412,14 +412,14 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        <MenuItem onClick={handleCloseUserMenu}>
+                        <MenuItem>
                           Profile
                         </MenuItem>
                         
                         <MenuItem>
                           My Orders
                         </MenuItem>
-                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                        <MenuItem>Logout</MenuItem>
                       </Menu>
                     </div>
                   ) : (
@@ -446,7 +446,6 @@ export default function Navigation() {
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <Button
-                    onClick={() => navigate("/cart")}
                     className="group -m-2 flex items-center p-2"
                   >
                     <ShoppingBagIcon
@@ -454,7 +453,7 @@ export default function Navigation() {
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      {cart.cart?.totalItem}
+                      2
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </Button>
@@ -464,7 +463,6 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      <AuthModal handleClose={handleClose} open={openAuthModal} />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+
 export const navigation = {
     categories: [
       {
@@ -122,3 +123,4 @@ export const navigation = {
       { name: 'Stores', id: '/' },
     ],
   }
+
