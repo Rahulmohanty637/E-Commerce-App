@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
+import { Button, Rating } from "@mui/material";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -117,7 +118,7 @@ export default function ProductDetails() {
               />
             </div>
             <div className="flex flex-wrap space-x-5 justify-center">
-            {product.images.map((image) => (
+              {product.images.map((image) => (
                 <div
                   // onClick={() => handleSetActiveImage(image)}
                   className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4"
@@ -133,45 +134,48 @@ export default function ProductDetails() {
           </div>
 
           {/* Product info */}
-          <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-            <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-              <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-                {product.name}
+          <div className="lg:col-span-1 mx-auto max-w-2xl px-4 pb-16 sm:px-6  lg:max-w-7xl  lg:px-8 lg:pb-24">
+            <div className="lg:col-span-2">
+              <h1 className="text-lg lg:text-xl font-semibold tracking-tight text-gray-900 ">
+                {/* {customersProduct.product?.brand} */}Universaloutfit
+              </h1>
+              <h1 className="text-lg lg:text-xl text-gray-900 opacity-60 pt-1">
+                Casual solid color men's t shirt
               </h1>
             </div>
 
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl tracking-tight text-gray-900">
-                {product.price}
-              </p>
+              <div className="flex space-x-5 items-center text-lg lg:text-xl tracking-tight text-gray-900 mt-6">
+                <p className="font-semibold">
+                  ₹ 199
+                  {/* {customersProduct.product?.discountedPrice} */}
+                </p>
+                <p className="opacity-50 line-through">
+                  ₹ 211
+                  {/* {customersProduct.product?.price} */}
+                </p>
+                <p className="text-green-600 font-semibold">
+                  {/* {customersProduct.product?.discountPersent} */}5 % Off
+                </p>
+              </div>
 
               {/* Reviews */}
               <div className="mt-6">
                 <h3 className="sr-only">Reviews</h3>
-                <div className="flex items-center">
-                  <div className="flex items-center">
-                    {[0, 1, 2, 3, 4].map((rating) => (
-                      <StarIcon
-                        key={rating}
-                        className={classNames(
-                          reviews.average > rating
-                            ? "text-gray-900"
-                            : "text-gray-200",
-                          "h-5 w-5 flex-shrink-0"
-                        )}
-                        aria-hidden="true"
-                      />
-                    ))}
-                  </div>
-                  <p className="sr-only">{reviews.average} out of 5 stars</p>
-                  <a
-                    href={reviews.href}
-                    className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                  >
+
+                <div className="flex items-center space-x-3">
+                  <Rating
+                    name="read-only"
+                    value={4.6}
+                    precision={0.5}
+                    readOnly
+                  />
+                  <p className="opacity-60 text-sm">42807 Ratings</p>
+                  <p className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                     {reviews.totalCount} reviews
-                  </a>
+                  </p>
                 </div>
               </div>
 
@@ -222,12 +226,6 @@ export default function ProductDetails() {
                 <div className="mt-10">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Size guide
-                    </a>
                   </div>
 
                   <RadioGroup
@@ -238,7 +236,7 @@ export default function ProductDetails() {
                     <RadioGroup.Label className="sr-only">
                       Choose a size
                     </RadioGroup.Label>
-                    <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
+                    <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-10">
                       {product.sizes.map((size) => (
                         <RadioGroup.Option
                           key={size.name}
@@ -249,8 +247,8 @@ export default function ProductDetails() {
                               size.inStock
                                 ? "cursor-pointer bg-white text-gray-900 shadow-sm"
                                 : "cursor-not-allowed bg-gray-50 text-gray-200",
-                              active ? "ring-2 ring-indigo-500" : "",
-                              "group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
+                              active ? "ring-1 ring-indigo-500" : "",
+                              "group relative flex items-center justify-center rounded-md border py-1 px-1 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
                             )
                           }
                         >
@@ -299,12 +297,13 @@ export default function ProductDetails() {
                   </RadioGroup>
                 </div>
 
-                <button
+                <Button
+                  variant="contained"
                   type="submit"
-                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  sx={{ padding: ".8rem 2rem", marginTop: "2rem" }}
                 >
-                  Add to bag
-                </button>
+                  Add to Cart
+                </Button>
               </form>
             </div>
 
