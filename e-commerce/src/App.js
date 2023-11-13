@@ -11,9 +11,9 @@ function App() {
     <div className="">
       <Navigation></Navigation>
       <div >
-        {/* <Homepage></Homepage> */}
+        <Homepage></Homepage>
         {/* <Product></Product> */}
-        <ProductDetails></ProductDetails>
+        {/* <ProductDetails></ProductDetails> */}
       </div>
       <Footer></Footer>
     </div>
