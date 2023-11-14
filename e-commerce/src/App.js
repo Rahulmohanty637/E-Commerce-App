@@ -8,6 +8,7 @@ import Product from "./customer/component/Product/Product";
 import ProductDetails from "./customer/component/ProductDetails/ProductDetails";
 import Checkout from "./customer/component/Checkout/Checkout";
 import Order from "./customer/component/Order/Order";
+import OrderDetails from "./customer/component/Order/OrderDetails";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         {/* <ProductDetails></ProductDetails> */}
         {/* <Cart></Cart> */}
         {/* <Checkout></Checkout> */}
-        <Order></Order>
+        {/* <Order></Order> */}
+        <OrderDetails></OrderDetails>
       </div>
       <Footer></Footer>
     </div>
