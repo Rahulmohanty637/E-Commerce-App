@@ -48,6 +48,23 @@ public class User {
 
     private LocalDateTime createdAt;
 
+    public User(Long id, String firstName, String lastName, String password, String email, String mobile, List<Address> addresses, List<PaymentInformation> paymentInformation, List<Rating> ratings, List<Review> reviews, LocalDateTime createdAt) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
+        this.mobile = mobile;
+        this.addresses = addresses;
+        this.paymentInformation = paymentInformation;
+        this.ratings = ratings;
+        this.reviews = reviews;
+        this.createdAt = createdAt;
+    }
+
+    public User() {
+    }
+
     public Long getId() {
         return id;
     }
